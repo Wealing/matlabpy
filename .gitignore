@@ -1,2 +1,2 @@
-tests/__pycache__/test_matlabpy.cpython-314.pyc
-tests/__pycache__/test.cpython-314.pyc
+__pycache__/
+*.pyc
