@@ -1,9 +1,10 @@
 [project]
 name = "matlabpy"
-version = "0.0.1"
-description = ""
+version = "0.0.2"
+description = "A Python library for MATLAB integration"
+repository = "https://github.com/wealing/matlabpy"
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "Daniel F. Hernández Gardiol",email = "dan.fhg@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.14"
