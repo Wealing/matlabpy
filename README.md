@@ -1,3 +1,5 @@
+hopefully this will be version 6
+
 matpy.py — A lightweight Python library that mimics core MATLAB matrix syntax & operators
 
 To publish a new version:
@@ -11,5 +13,11 @@ git commit -am "Bump version to $(poetry version --short)"
 git tag v$(poetry version --short)
 
 # 4. Push the commit and the tag to GitHub
+git push origin main
+git push origin v$(poetry version --short)
+
+poetry version patch
+git commit -am "Bump version to $(poetry version --short)"
+git tag v$(poetry version --short)
 git push origin main
 git push origin v$(poetry version --short)
