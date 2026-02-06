@@ -9,9 +9,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    container:
-      # Python 3.14 + Poetry 2.3.2 (or latest stable)
-      image: ghcr.io/python-poetry/poetry:2.3.2-py3.14
     environment:
       name: pypi
       url: https://pypi.org/p/matlabpy
@@ -22,7 +19,17 @@ jobs:
       # Step 1: Checkout the repo
       - uses: actions/checkout@v4
 
-      # Step 2: Build the package
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # Step 3: Install Poetry
+      - name: Install Poetry
+        run: pipx install poetry
+
+      # Step 4: Build the package
       - name: Build Python package
         run: poetry build
 
