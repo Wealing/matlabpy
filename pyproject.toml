@@ -1,13 +1,13 @@
 [project]
 name = "matlabpy"
-version = "0.0.8"
+version = "0.0.9"
 description = "A Python library for MATLAB integration"
 repository = "https://github.com/wealing/matlabpy"
 authors = [
     {name = "Daniel F. Hernández Gardiol",email = "dan.fhg@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 dependencies = [
     "numpy>=1.20.0"
 ]
