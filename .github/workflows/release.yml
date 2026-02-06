@@ -1,0 +1,27 @@
+name: Publish Python Package
+
+on:
+  push:
+    tags:
+      - "v*"  # triggers on any tag like v0.1.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container:
+      # Python 3.14 + Poetry 2.3.2 (or latest stable)
+      image: ghcr.io/python-poetry/poetry:2.3.2-py3.14
+    permissions:
+      id-token: write  # for OIDC publishing to PyPI
+
+    steps:
+      # Step 1: Checkout the repo
+      - uses: actions/checkout@v4
+
+      # Step 2: Build the package
+      - name: Build Python package
+        run: poetry build
+
+      # Step 3: Publish to PyPI
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
