@@ -1,23 +1,86 @@
-hopefully this will be version 6
+# matlabpy
 
-matpy.py — A lightweight Python library that mimics core MATLAB matrix syntax & operators
+A Python library that replicates MATLAB-style matrix syntax and operators on top of NumPy.
 
-To publish a new version:
-# 1. Bump the version (e.g., to 0.0.2)
-poetry version patch
+It gives you:
 
-# 2. Commit the change to pyproject.toml
-git commit -am "Bump version to $(poetry version --short)"
+✅ **MATLAB-like syntax & behavior**
 
-# 3. Create a git tag for the new version
-git tag v$(poetry version --short)
+## Features
 
-# 4. Push the commit and the tag to GitHub
-git push origin main
-git push origin v$(poetry version --short)
+### Matrix literals
 
-poetry version patch
-git commit -am "Bump version to $(poetry version --short)"
-git tag v$(poetry version --short)
-git push origin main
-git push origin v$(poetry version --short)
+```python
+A = mat("1 2; 3 4")
+```
+
+### Matrix multiplication
+
+```python
+C = A * B
+```
+
+### Elementwise operations
+
+```python
+A.emul(B)   # A .* B
+A.ediv(B)   # A ./ B
+A.epow(2)   # A .^ 2
+```
+
+### Power
+
+```python
+A ** 2
+```
+
+### Transpose
+
+```python
+A.T
+```
+
+### MATLAB-style indexing
+
+```python
+A(1,2)   # 1-based indexing
+```
+
+### Concatenation
+
+```python
+M.hcat(A, B)   # [A B]
+M.vcat(A, B)   # [A; B]
+```
+
+### Linear algebra helpers
+
+```python
+A.inv(), A.pinv(), A.det(), A.rank(), A.eig()
+```
+
+## Example usage
+
+```python
+from matlabpy import *
+
+A = mat("1 2; 3 4")
+B = mat("5 6; 7 8")
+
+print(A * B)          # matrix multiply
+print(A.emul(B))      # elementwise multiply
+print(A ** 2)
+print(A(1,2))         # MATLAB-style indexing
+```
+
+## Design philosophy
+
+Instead of fighting Python syntax, this library:
+
+*   Wraps NumPy cleanly
+*   Preserves MATLAB mental models
+*   Keeps everything fast + vectorized
+*   Lets you gradually migrate MATLAB-style thinking into Pythonic code
+
+This approach keeps cognitive friction extremely low, especially for engineers migrating MATLAB workflows into Python-based data platforms.
+
