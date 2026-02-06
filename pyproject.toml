@@ -1,6 +1,6 @@
 [project]
 name = "matlabpy"
-version = "0.0.6"
+version = "0.0.7"
 description = "A Python library for MATLAB integration"
 repository = "https://github.com/wealing/matlabpy"
 authors = [
@@ -9,6 +9,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "numpy>=1.20.0"
 ]
 
 [tool.poetry]
