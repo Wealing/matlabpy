@@ -1,6 +1,6 @@
 [project]
 name = "matlabpy"
-version = "0.0.7"
+version = "0.0.8"
 description = "A Python library for MATLAB integration"
 repository = "https://github.com/wealing/matlabpy"
 authors = [
